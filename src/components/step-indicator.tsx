@@ -6,20 +6,20 @@ export default function StepIndicator({
   currentStep: number;
 }) {
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-wrap gap-4">
       {steps.map((label, index) => {
         const stepNumber = index + 1;
         const isActive = currentStep === stepNumber;
         const isCompleted = currentStep > stepNumber;
         return (
-          <div key={label}>
+          <div key={label} className="flex items-center">
             <div
-              className={`p-2 rounded-lg mx-auto text-white ${
+              className={`p-1.5 sm:p-2 rounded-lg text-xs sm:text-sm font-medium ${
                 isCompleted
-                  ? "bg-emerald-500"
+                  ? "bg-emerald-500 text-white"
                   : isActive
-                  ? "bg-sky-500"
-                  : "bg-slate-300"
+                  ? "bg-sky-500 text-white"
+                  : "bg-slate-200 text-slate-600"
               }`}
             >
               {label}
